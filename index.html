@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon | VETAP</title>
+
+  <!-- ==== SEO & Social ==== -->
+  <meta name="description" content="VETAP – Veterinary technology platform launching soon.">
+  <meta property="og:title"       content="VETAP – Coming Soon">
+  <meta property="og:description" content="Stay tuned. VETAP is launching soon.">
+  <meta property="og:image"       content="https://vetaps.com/vc.png">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://vetaps.com">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="VETAP – Coming Soon">
+  <meta name="twitter:description" content="Stay tuned. VETAP is launching soon.">
+  <meta name="twitter:image"       content="https://vetaps.com/vc.png">
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-34PNPMGE0F"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-34PNPMGE0F');
+  </script>
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/png" href="/vp.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- ====== FONTS ====== -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- ====== STYLE ====== -->
+  <style>
+    :root{--accent:#121E2B;}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Inter",sans-serif}
+    body{min-height:100vh;display:flex;flex-direction:column;background:#fff;color:var(--accent)}
+
+    /* HEADER */
+    header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.04);position:relative;z-index:10;direction:ltr!important}
+    .header-logo img{height:28px}
+    .header-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:700;font-size:1.1rem;letter-spacing:.1em;color:#222}
+    header select{background:transparent;border:1px solid rgba(18,30,43,.2);padding:.4rem .8rem;border-radius:4px;cursor:pointer}
+
+    /* MAIN */
+    main{flex:1;display:flex;align-items:center;justify-content:center;gap:clamp(1.5rem,4vw,5rem);padding:2rem;overflow:hidden}
+
+    /* logo video initial center then slide */
+    .logo video{width:clamp(140px,30vw,380px);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.05);display:block}
+
+    /* animation wrapper */
+    .logo{position:relative}
+    .logo.start{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);animation:slideLeft 2.0s ease 0.2s forwards}
+    @keyframes slideLeft{
+      0%{transform:translate(-50%,-50%) scale(1)}
+      100%{transform:translate(0,0) scale(1);top:auto;left:auto;position:static}
+    }
+
+    /* content typing effect */
+    .content{display:flex;flex-direction:column;align-items:flex-start;opacity:0}
+    .content.show{animation:fadeIn 0.8s forwards 2.2s}
+    @keyframes fadeIn{to{opacity:1}}
+
+    .content h1{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;margin-bottom:1.2rem;white-space:nowrap;overflow:hidden;border-right:2px solid var(--accent);animation:typing 2s steps(20,end) 2.2s forwards,blink 1s step-end infinite 2.2s}
+    @keyframes typing{from{width:0}to{width:100%}}
+    @keyframes blink{50%{border-color:transparent}}
+
+    .countdown{display:flex;gap:1rem;font-size:clamp(1rem,3.2vw,1.6rem);font-weight:700;opacity:0}
+    .countdown.show{animation:fadeIn 0.8s forwards 4.5s}
+    .countdown span{display:flex;flex-direction:column;align-items:center;min-width:62px}
+    .countdown .num{font-size:1.8em}.countdown .label{font-size:.5em;font-weight:400;opacity:.8;margin-top:.2em}
+
+    @media(max-width:600px){
+      header{height:48px;padding:0 .6rem}
+      .header-title{font-size:.95rem}
+      main{gap:1.2rem;padding:1.2rem .4rem}
+      .content h1{font-size:1.6rem}
+      .countdown span{min-width:46px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-logo"><img src="v.png" alt="VETAP logo"></div>
+    <div class="header-title">VETAP</div>
+    <select id="lang-switcher" aria-label="Language selector">
+      <option value="en" selected>English</option>
+      <option value="ar">العربية</option>
+      <option value="tr">Türkçe</option>
+    </select>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <!-- الشعار (فيديو) -->
+    <div class="logo start" id="logoBox">
+      <video id="vetapVideo" autoplay loop muted playsinline preload="auto">
+        <source src="v.webm"     type="video/webm">
+        <source src="v_h264.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- النص والعدّاد -->
+    <div class="content" id="contentBox">
+      <h1 id="coming-text">Coming Soon</h1>
+      <div class="countdown" id="countdown">
+        <span><span class="num" id="cd-days">00</span><span class="label" id="lbl-days">Days</span></span>
+        <span><span class="num" id="cd-hours">00</span><span class="label" id="lbl-hours">Hours</span></span>
+        <span><span class="num" id="cd-mins">00</span><span class="label" id="lbl-mins">Minutes</span></span>
+        <span><span class="num" id="cd-secs">00</span><span class="label" id="lbl-secs">Seconds</span></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    /* LANG DATA */
+    const L={en:{coming:"Coming Soon",days:"Days",hours:"Hours",mins:"Minutes",secs:"Seconds"},
+             ar:{coming:"قادم قريبًا",days:"يوم",hours:"ساعة",mins:"دقيقة",secs:"ثانية"},
+             tr:{coming:"Çok Yakında",days:"Gün",hours:"Saat",mins:"Dakika",secs:"Saniye"}};
+    const els={coming:document.getElementById("coming-text"),
+               days:document.getElementById("lbl-days"),
+               hrs:document.getElementById("lbl-hours"),
+               mins:document.getElementById("lbl-mins"),
+               secs:document.getElementById("lbl-secs")};
+    document.getElementById("lang-switcher").addEventListener("change",e=>setLang(e.target.value));
+    function setLang(lang){const t=L[lang]||L.en;els.coming.textContent=t.coming;els.days.textContent=t.days;els.hrs.textContent=t.hours;els.mins.textContent=t.mins;els.secs.textContent=t.secs;document.documentElement.dir=(lang==="ar")?"rtl":"ltr";document.querySelector("header").style.direction="ltr";}
+    setLang("en");
+
+    /* Animation triggers */
+    window.addEventListener("load",()=>{
+      document.getElementById("contentBox").classList.add("show");
+      document.querySelector(".countdown").classList.add("show");
+    });
+
+    /* COUNTDOWN to 20 Aug 2025 00:00 +03:00 */
+    const target = new Date("2025-08-20T00:00:00+03:00").getTime();
+    const num = id => document.getElementById(id);
+    const pad = n => n.toString().padStart(2,"0");
+    function tick(){
+      const diff=Math.max(0,target-Date.now());
+      const d=Math.floor(diff/864e5),
+            h=Math.floor(diff/36e5)%24,
+            m=Math.floor(diff/6e4)%60,
+            s=Math.floor(diff/1e3)%60;
+      num("cd-days").textContent=pad(d);
+      num("cd-hours").textContent=pad(h);
+      num("cd-mins").textContent=pad(m);
+      num("cd-secs").textContent=pad(s);
+    }
+    tick();setInterval(tick,1000);
+  </script>
+</body>
+</html>
